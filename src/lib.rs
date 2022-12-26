@@ -1,14 +1,32 @@
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
+// template.rs
+pub struct DefaultTemplate {
+    name: String,
+    timestamp: i64,
+    token: String,
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
+impl ToString for DefaultTemplate {
+    fn to_string(&self) -> String {
+        todo!();
     }
+}
+
+// lib.rs
+pub struct Puzzle {
+    template: String,
+    nonce: usize,
+}
+
+impl Puzzle {
+    pub fn new(template: String) -> Self {
+        Puzzle { template, nonce: 0 }
+    }
+
+    pub fn is_solved(&self) -> bool {
+        todo!();
+    }
+}
+
+fn solve(puzzle: &mut Puzzle, difficulty: usize) {
+    todo!();
 }
