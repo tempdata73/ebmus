@@ -16,16 +16,19 @@ impl ToString for DefaultTemplate {
 pub struct Puzzle {
     template: String,
     nonce: usize,
-    pub difficulty: usize,
+    difficulty: u8,
 }
 
 impl Puzzle {
-    pub fn new(template: &str, difficulty: usize) -> Self {
-        Puzzle {
-            template: template.to_owned(),
+    pub fn new(template: String, difficulty: u8) -> Self {
+        let mut puzzle = Puzzle {
+            template,
             nonce: 0,
-            difficulty,
-        }
+            difficulty: 0,
+        };
+
+        puzzle.set_difficulty(difficulty).unwrap();
+        puzzle
     }
 
     fn is_solved(&self) -> bool {
@@ -51,6 +54,15 @@ impl Puzzle {
         let stream = self.to_string();
         let dump = blake3::hash(stream.as_bytes());
         dump.to_string()
+    }
+
+    pub fn set_difficulty(&mut self, difficulty: u8) -> Result<(), &'static str> {
+        if difficulty > 64 {
+            return Err("Difficulty cannot be greater than 64.");
+        }
+
+        self.difficulty = difficulty;
+        Ok(())
     }
 }
 
