@@ -36,7 +36,7 @@ struct Template {
   token: String,
 }
 ```
-resolves to the string "EBMUS:  1672169715:9doEQzRH3U76KKH2:::".
+which resolves to the string "EBMUS:  1672169715:9doEQzRH3U76KKH2:::".
 
 # TODO
 - add documentation
