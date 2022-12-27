@@ -11,7 +11,7 @@ let difficulty = 5;
 let template = "EBMUS:::"
 let mut puzzle = Puzzle::new(template);
 
-puzzle.solve().unwrap();
+puzzle.solve(difficulty).unwrap();
 println!("{}", puzzle.to_string()); // EBMUS:::1437302
 println!("{}", puzzle.nonce); // 1437302
 println!("{}", puzzle.hash()); // 000004c14153250a5234dfdca6a4a40c09ce8545fbe323463567631d05759516
