@@ -19,6 +19,6 @@ impl Template {
 
 impl ToString for Template {
     fn to_string(&self) -> String {
-        format!("{}:  {}:{}", self.name, self.timestamp, self.token)
+        format!("{}:  {}:{}:::", self.name, self.timestamp, self.token)
     }
 }

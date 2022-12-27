@@ -10,7 +10,7 @@ pub struct Puzzle {
 }
 
 impl Puzzle {
-    pub fn new(template: &str) -> Self {
+    pub fn new<T: ToString>(template: T) -> Self {
         Puzzle {
             template: template.to_string(),
             nonce: 0,
@@ -51,6 +51,6 @@ impl Puzzle {
 
 impl ToString for Puzzle {
     fn to_string(&self) -> String {
-        format!("{}:::{}", self.template, self.nonce)
+        format!("{}{}", self.template, self.nonce)
     }
 }
