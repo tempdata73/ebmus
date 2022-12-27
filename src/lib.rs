@@ -1,15 +1,5 @@
-// template.rs
-pub struct DefaultTemplate {
-    name: String,
-    timestamp: i64,
-    token: String,
-}
-
-impl ToString for DefaultTemplate {
-    fn to_string(&self) -> String {
-        todo!();
-    }
-}
+#[cfg(feature = "template")]
+pub mod template;
 
 // lib.rs
 #[derive(Debug)]
